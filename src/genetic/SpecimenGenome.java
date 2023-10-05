@@ -1,7 +1,6 @@
-package genetic.mutation;
+package genetic;
 
 import common.LabParameters;
-import genetic.Genome;
 
 import java.util.List;
 

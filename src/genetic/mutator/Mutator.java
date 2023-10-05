@@ -1,4 +1,4 @@
-package genetic.mutation;
+package genetic.mutator;
 
 public abstract class Mutator {
 }

@@ -12,5 +12,8 @@ abstract public class Genome {
     public double get(int index) throws IllegalStateException, IllegalArgumentException {
         return this.geneValues.get(index);
     }
+    public int getSize() {
+        return this.geneValues.getParameterCount();
+    }
     abstract public void setGeneValues(List<Double> values);
 }
