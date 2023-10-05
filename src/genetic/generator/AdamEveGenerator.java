@@ -1,6 +1,4 @@
-package generator;
-
-import breeder.Breeder;
+package genetic.generator;
 
 public class AdamEveGenerator extends Generator {
 }

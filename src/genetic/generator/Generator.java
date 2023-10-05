@@ -1,4 +1,4 @@
-package generator;
+package genetic.generator;
 
 public abstract class Generator {
 }

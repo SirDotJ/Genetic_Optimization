@@ -1,6 +1,4 @@
-package killer;
-
-import generator.Generator;
+package genetic.killer;
 
 public class ElementOfTheEliteKiller extends Killer{
 }
