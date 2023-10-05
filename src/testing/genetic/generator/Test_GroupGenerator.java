@@ -9,7 +9,7 @@ public class Test_GroupGenerator {
     public static void main(String[] args) {
         try {
             GroupGenerator generator = new GroupGenerator(Specimen.class, 5);
-            ArrayList<Specimen> groupOfSpecimen = new ArrayList<>(Specimen.parseListObject(generator.generate()));
+            ArrayList<Specimen> groupOfSpecimen = new ArrayList<>(Specimen.parseListObjectToSpecimen(generator.generate()));
             for (int i = 0; i < generator.getGroupSize(); i++) {
                 System.out.println("Object №" + i + ": " + groupOfSpecimen.get(i).getGenome().getGeneValues().getParameterValues());
             }

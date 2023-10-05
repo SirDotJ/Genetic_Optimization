@@ -48,7 +48,7 @@ public class Specimen extends Species {
 
         return genome;
     }
-    static public List<Specimen> parseListObject(List<Object> providedList) throws IllegalArgumentException {
+    static public List<Specimen> parseListObjectToSpecimen(List<Object> providedList) throws IllegalArgumentException {
         List<Specimen> parsedValue;
         try {
             parsedValue = (List<Specimen>) (Object) providedList; // При ошибке будет поймана при помощи catch
