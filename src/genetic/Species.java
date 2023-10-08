@@ -24,6 +24,7 @@ public abstract class Species {
     public Genome getGenome() {
         return genome;
     }
+    public double adaptedness() {return 0;} //метод для вычисления приспособленности
     public List<Double> getGenomeValues() {
         return this.genome.getGeneValues().getParameterValues();
     }
