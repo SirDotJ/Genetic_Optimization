@@ -1,14 +1,13 @@
 package common;
 
-import java.util.List;
+import java.io.InvalidClassException;
 
 public abstract class Formula {
-    protected List<Double> parameters;
-    public List<Double> getParameters() {
-        return parameters;
+    protected final Function function;
+    protected Formula(Function function) {
+        this.function = function;
     }
-
-    abstract public int getParameterCount();
-    abstract public void setParameters(List<Double> parameters);
-    abstract public double get();
+    public double get(Parameters parameters) throws IllegalArgumentException, InvalidClassException {
+        return this.function.calculate(parameters);
+    }
 }
