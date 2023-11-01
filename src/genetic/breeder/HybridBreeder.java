@@ -1,5 +1,5 @@
 package genetic.breeder;
-
-public class HybridBreeder extends Breeder {
+//скрещивание двух видов
+public class HybridBreeder implements Breeder {
 
 }
