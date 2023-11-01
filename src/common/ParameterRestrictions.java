@@ -12,6 +12,10 @@ public class ParameterRestrictions {
         this.parameterRanges = parameterRanges;
     }
 
+    public List<NumberRange> getParameterRanges() {
+        return parameterRanges;
+    }
+
     public boolean check(int index, double value) {
         if (this.parameterRanges == null)
             return true;

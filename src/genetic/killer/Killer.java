@@ -2,6 +2,7 @@ package genetic.killer;
 import genetic.Species;
 
 import java.util.List;
-public abstract class Killer {
-    public abstract List<Species> choose(List<Species> speciesList);
+// Интерфейс определяет функцию выборки особей для редукции из предоставленного набора
+public interface Killer {
+    public List<Species> choose(List<Species> speciesList);
 }

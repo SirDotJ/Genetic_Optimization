@@ -1,49 +1,45 @@
 package genetic.killer;
 
 import genetic.Species;
+import javafx.util.Pair;
 
 import java.util.*;
 
-public class ElementOfTheEliteKiller extends Killer{
-    public int eliteAmount;
-    public int reduceAmount;
+public class ElementOfTheEliteKiller implements Killer {
+    private static final int DEFAULT_ELITE_COUNT = 3;
+    private static final int DEFAULT_REDUCE_COUNT = 3;
+    private final int eliteCount;
+    private final int reduceCount;
     public ElementOfTheEliteKiller(){
-        eliteAmount = 1;
-        reduceAmount = 1;
+        this(DEFAULT_ELITE_COUNT, DEFAULT_REDUCE_COUNT);
     }
-    public ElementOfTheEliteKiller(int Y,int X){
-        eliteAmount = Y;
-        reduceAmount = X;
+    public ElementOfTheEliteKiller(int eliteCount, int reduceCount){
+        this.eliteCount = eliteCount;
+        this.reduceCount = reduceCount;
     }
     @Override
     public List<Species> choose(List<Species> speciesList) {
-        List<Species> eliteList = new ArrayList<>(); //список элит
-        List<Species> otherList = new ArrayList<>(); //список плебеев
-        List<Species> killList = new ArrayList<>(); //список на редукцию
-        List<Species> survivorsList = speciesList; //исходный список, из которого выбираем элиту
+        List<Pair<Double, Species>> scoreBoard = new ArrayList<>();
+        List<Species> elites = new ArrayList<>();
+        List<Species> lowLives = new ArrayList<>();
+        List<Species> killList = new ArrayList<>();
 
         int bestIndex = -1; //индекс самого сильного
-        double maxAdaptedness = -99999; //приспособленность самого сильного
+        double maxAdaptedness = Double.MIN_VALUE; //приспособленность самого сильного
 
-        for (int j = 0;j<eliteAmount;j++) { //нужно выбрать eliteAmount особей
-
-            for (int i = 0; i < survivorsList.size(); i++) { //ищем самого сильного
-                if (survivorsList.get(i).adaptedness() > maxAdaptedness) {
-                    maxAdaptedness = survivorsList.get(i).adaptedness();
-                    bestIndex = i;
-                }
+        for (Species creature : speciesList) {
+            scoreBoard.add(new Pair<>(creature.adaptedness(), creature));
+        }
+        Arrays.sort((Pair<Double, Species>[]) scoreBoard.toArray(), new Comparator<Pair<Double, Species>>() {
+            @Override
+            public int compare(Pair<Double, Species> o1, Pair<Double, Species> o2) {
+                return o1.getKey().compareTo(o2.getKey());
             }
-            eliteList.add(survivorsList.get(bestIndex)); //добавляем в список элиты
-            survivorsList.remove(bestIndex); //удаляем из общего списка и продолжаем отбор
-        }
+        });
 
-        otherList = survivorsList; //остаются все кроме элиты
 
-        for (int i = 0; i<reduceAmount; i++){
-            int killIndex = (int) (Math.random() * otherList.size()); //получаем случайный индекс от 0 до длины списка для удаления
-            killList.add(otherList.get(killIndex));
-            otherList.remove(killIndex); //удаляем случайно выбранный элемент
-        }
+        // TODO: Добавить обратно из сохраненных сообщений Telegram
+
         return killList; //список для редукции
     }
 }

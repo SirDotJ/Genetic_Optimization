@@ -26,8 +26,8 @@ public class LabFormula extends Formula {
         double x10 = parameters.get(9);
 
         // Формула из постановки лабораторной работы
-        return ((x1 * x2) - (x3 * sin(3 * x4)) * exp(pow(x5, 2)) + pow(x6, x3) - 12.5 * x7) /
-                (x4 * cos(4 * x8) - log(x8 * x1) + tan(pow(x9, 4)) - pow(2, (x10 * x5)));
+        return (((x1 * x2) - (x3 * sin(3 * x4) * exp(pow(x5, 2))) + pow(x6, x3) - 12.5 * x7) /
+                (x4 * cos(4 * x8) - log(x8 * x1) + tan(pow(x9, 4)) - pow(2, (x10 * x5))));
     };
     public LabFormula() {
         super(LAB_FUNCTION);

@@ -5,7 +5,7 @@ import genetic.Species;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RouletteKiller extends Killer{
+public class RouletteKiller implements Killer {
     public int reduceAmount;
     public RouletteKiller(){
         reduceAmount = 1;
@@ -18,7 +18,6 @@ public class RouletteKiller extends Killer{
 
         List<Species> killList = new ArrayList<>();
         List<Species> survivorsList = speciesList; //исходный список
-
 
         //создаем массив softmax приспособленностей
         double[] softmaxAdaptedness = new double[survivorsList.size()];

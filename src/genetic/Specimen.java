@@ -1,6 +1,7 @@
 package genetic;
 
 import common.LabParameters;
+import common.ParameterRestrictions;
 import genetic.birth.AverageGeneBirth;
 import genetic.mutation.RandomOffsetMutation;
 
@@ -18,8 +19,8 @@ public class Specimen extends Species {
 
         return finalFields;
     }
-    public Specimen() {
-        this(generateRandomGenome());
+    public Specimen() { // TODO: looks ugly, replace later
+        this(generateRandomGenome(new ParameterRestrictions(LabParameters.LAB_PARAMETER_RANGES)));
     }
     public Specimen(List<Double> genomeValues) {
         super(build());
@@ -36,13 +37,14 @@ public class Specimen extends Species {
         this.mutationMethod.mutate(this);
     }
 
-    // TODO: temporary random genome generator - redo it once limitations for Omega are in place
-    static private List<Double> generateRandomGenome() {
+    static private List<Double> generateRandomGenome(ParameterRestrictions restrictions) {
         int genomeSize = LabParameters.PARAMETER_COUNT;
         List<Double> genome = new ArrayList<>();
 
         for (int i = 0; i < genomeSize; i++) {
-            double randomValue = -4 + Math.random() * 4;
+            double lowerBound = restrictions.getParameterRanges().get(i).getLowerBound();
+            double upperBound = restrictions.getParameterRanges().get(i).getUpperBound();
+            double randomValue = lowerBound + Math.random() * (upperBound - lowerBound);
             genome.add(randomValue);
         }
 
