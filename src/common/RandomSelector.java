@@ -9,8 +9,8 @@ import java.util.Set;
 public class RandomSelector {
     private final List<Object> objects;
     private Set<Object> availableObjects;
-    public RandomSelector(List<Object> objects) {
-        this.objects = objects;
+    public <T extends Object> RandomSelector(List<T> objects) {
+        this.objects = (List<Object>) objects;
         this.availableObjects = new HashSet<>(this.objects);
     }
     public Object get() {

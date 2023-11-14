@@ -5,7 +5,6 @@ import genetic.Species;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 public class FreeForAllBreedingGround extends BreedingGround {
@@ -13,13 +12,13 @@ public class FreeForAllBreedingGround extends BreedingGround {
         super(populationSize);
     }
     @Override
-    public List<Species> reproduce(List<Species> parents) {
-        List<Species> newGeneration = new ArrayList<>();
+    public <TS extends Species> List<TS> reproduce(List<TS> parents) {
+        List<TS> newGeneration = new ArrayList<>();
         RandomSelector selector = new RandomSelector(Arrays.asList(parents.toArray()));
         while (newGeneration.size() < this.populationSize) {
-            Species mom = (Species) selector.get();
-            Species dad = (Species) selector.get();
-            newGeneration.add(mom.reproduce(dad));
+            TS mom = (TS) selector.get();
+            TS dad = (TS) selector.get();
+            newGeneration.add((TS) mom.reproduce(dad));
         }
         return newGeneration;
     }

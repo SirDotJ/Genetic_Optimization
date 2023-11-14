@@ -9,5 +9,5 @@ public abstract class BreedingGround {
     protected BreedingGround(int populationSize) {
         this.populationSize = populationSize;
     }
-    public abstract List<Species> reproduce(List<Species> parents);
+    public abstract <TS extends Species> List<TS> reproduce(List<TS> parents);
 }
