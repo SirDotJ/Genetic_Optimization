@@ -3,11 +3,13 @@ package genetic;
 import genetic.breeder.Breeder;
 import genetic.breeder.PrideBreeder;
 import genetic.breedingGround.BreedingGround;
-import genetic.breedingGround.FreeForAllBreedingGround;
+import genetic.breedingGround.PrideBreedingGround;
 import genetic.generator.Generator;
 import genetic.generator.GroupGenerator;
 import genetic.killer.ElementOfTheEliteKiller;
 import genetic.killer.Killer;
+import genetic.mutation.Mutation;
+import genetic.mutation.RandomOffsetMutation;
 import genetic.mutator.EqualChanceMutator;
 import genetic.mutator.Mutator;
 
@@ -21,7 +23,8 @@ public class Population {
         BREEDER,
         BREEDING_GROUND,
         KILLER,
-        MUTATOR
+        MUTATOR,
+        MUTATION
     }
     protected final Class<Species> speciesClass;
     protected final Generator generator;
@@ -29,16 +32,18 @@ public class Population {
     protected final BreedingGround breedingGround;
     protected final Killer killer;
     protected final Mutator mutator;
+    protected final Mutation mutation;
     private static List<Object> build() {
         int finalFieldsSize = BUILD_INDEXES.values().length;
         ArrayList<Object> finalFields = new ArrayList<>(Arrays.asList(new Object[finalFieldsSize]));
 
         finalFields.set(BUILD_INDEXES.SPECIES.ordinal(), Specimen.class);
         finalFields.set(BUILD_INDEXES.GENERATOR.ordinal(), new GroupGenerator(Specimen.class));
-        finalFields.set(BUILD_INDEXES.BREEDER.ordinal(), new PrideBreeder());
-        finalFields.set(BUILD_INDEXES.BREEDING_GROUND.ordinal(), new FreeForAllBreedingGround(POPULATION_SIZE));
+        finalFields.set(BUILD_INDEXES.BREEDER.ordinal(), new PrideBreeder(5));
+        finalFields.set(BUILD_INDEXES.BREEDING_GROUND.ordinal(), new PrideBreedingGround(POPULATION_SIZE));
         finalFields.set(BUILD_INDEXES.KILLER.ordinal(), new ElementOfTheEliteKiller());
         finalFields.set(BUILD_INDEXES.MUTATOR.ordinal(), new EqualChanceMutator());
+        finalFields.set(BUILD_INDEXES.MUTATION.ordinal(), new RandomOffsetMutation());
 
         return finalFields;
     }
@@ -54,10 +59,12 @@ public class Population {
             this.breedingGround = (BreedingGround) parameters.get(BUILD_INDEXES.BREEDING_GROUND.ordinal());
             this.killer = (Killer) parameters.get(BUILD_INDEXES.KILLER.ordinal());
             this.mutator = (Mutator) parameters.get(BUILD_INDEXES.MUTATOR.ordinal());
+            this.mutation = (Mutation) parameters.get(BUILD_INDEXES.MUTATION.ordinal());
         } catch (Exception e) {
             throw new IllegalArgumentException("Provided list of parameters is invalid: " + e);
         }
         this.currentCreatures = Species.parseListObjectToSpecies(this.generator.generate());
+        this.bestCreature = this.findCurrentBestCreature();
     }
     private List<Species> currentCreatures;
     public List<Species> getCurrentCreatures() {
@@ -71,16 +78,25 @@ public class Population {
         return bestCreature.genome;
     }
     public void nextEvolutionStep() {
-        List<Species> chosenBreeders = null; // TODO: after Violette implements breeders, set chosenBreeders and pass it for new generation
-        List<Species> newGeneration = this.breedingGround.reproduce(this.currentCreatures);
-        this.currentCreatures = newGeneration;
-        // TODO: Kill for all in population based on killer
-        System.out.println("Killing not implemented");
-        // TODO: Mutator for all in population based on mutator
-        System.out.println("Mutating not implemented");
+        /* Размножение */
+        List<Species> chosenBreeders = this.breeder.choose(this.currentCreatures);
+        this.currentCreatures = this.breedingGround.reproduce(chosenBreeders);
+
+        /* Редукция */
+        List<Species> chosenDead = this.killer.choose(this.currentCreatures);
+        chosenDead.forEach((deadGuy) -> this.currentCreatures.remove(deadGuy));
+
+        /* Мутация */
+        List<Species> chosenMutated = this.mutator.choose(this.currentCreatures);
+        chosenMutated.forEach(this.mutation::mutate);
+
+        Species newBestCreature = this.findCurrentBestCreature();
+        if (this.bestCreature.adaptedness() < newBestCreature.adaptedness())
+            this.bestCreature = newBestCreature;
     }
     private Species findCurrentBestCreature() {
-        // TODO: find best creature based on their survivability
-        return null;
+        List<Species> ranking = new ArrayList<>(this.currentCreatures);
+        Collections.sort(ranking);
+        return ranking.get(ranking.size() - 1);
     }
 }

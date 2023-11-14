@@ -1,21 +1,18 @@
 package testing.genetic;
 
 import genetic.Population;
-import genetic.Species;
-
-import java.util.List;
 
 public class Test_Population {
+    public static int evolutionSteps = 100;
     public static void main(String[] args) {
         try {
             Population population = new Population();
-            List<Species> firstGeneration = population.getCurrentCreatures();
-            System.out.println("First generation:");
-            firstGeneration.forEach((creature) -> System.out.println("\tCreature: " + creature.getGenomeValues()));
-            population.nextEvolutionStep();
-            List<Species> secondGeneration = population.getCurrentCreatures();
-            System.out.println("Second generation:");
-            secondGeneration.forEach((creature) -> System.out.println("\tCreature: " + creature.getGenomeValues()));
+            for (int i = 0; i < evolutionSteps; i++) {
+                System.out.println("Step №" + i + ":");
+                System.out.println("\tBest creature: " + population.getBestCreature());
+                System.out.println("\tBest genome: " + population.getBestGenome());
+                population.nextEvolutionStep();
+            }
         } catch (Exception e) {
             System.out.println("Error! Exception occured: " + e);
         }
