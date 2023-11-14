@@ -5,13 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Рефакторинг Parameters с приминением Omega:&#10;- LabFunction и определение функции лабораторной работы переведено в LabFormula;&#10;- LabFormula расширен объявлением используемой функции;&#10;- LabParameters расширен добавлением ограничений к параметрам из постановки лабораторной работы;&#10;- Было произведёно переопределение LabParameters: теперь LabParameters только определяет используемые ограничения и количество параметров перед отправкой на создание в родительском классе Parameters;&#10;- Parameters теперь не абстрактный класс и определяет хранение и все общие операции над параметрами учитывая ограничения или их отсутствие;&#10;- ParameterRestrictions - описывает проверку предоставленного набора параметров на их принадлежность соответствующим диапазонам значений NumberRange;&#10;- NumberRange - описывает включительный диапазон значений для одного параметра.">
-      <change afterPath="$PROJECT_DIR$/src/testing/common/Test_LabParameters.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/common/testCases/Cases_ParameterRestrictions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/genetic/breedingGround/PrideBreedingGround.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetic/Test_Specimen.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetic/birth/Test_AverageGeneBirth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/common/LabFormula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/LabFormula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/ParameterRestrictions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/ParameterRestrictions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Parameters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Genome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/genetic/Species.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Species.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/genetic/Specimen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Specimen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/Breeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/Breeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/EqualChanceBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/EqualChanceBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/HybridBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/HybridBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/RouletteBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/RouletteBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/SurvivalOfTheFittestBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/SurvivalOfTheFittestBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/TournamentBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/TournamentBreeder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/genetic/killer/ElementOfTheEliteKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/ElementOfTheEliteKiller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/genetic/killer/EqualChanceKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/EqualChanceKiller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/genetic/killer/Killer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/Killer.java" afterDir="false" />
@@ -66,24 +75,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_GroupGenerator">
+  <component name="RunManager" selected="Application.Test_Specimen">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
       <option name="VM_PARAMETERS" value="--module-path &quot;$USER_HOME$/bin/javafx-sdk-21/lib/&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LabFormula" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="common.LabFormula" />
-      <module name="AIS-Lab1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="common.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -140,21 +136,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test_Specimen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetic.Test_Specimen" />
+      <module name="AIS-Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testing.genetic.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Full App Start" />
+      <item itemvalue="Application.Test_Specimen" />
       <item itemvalue="Application.Test_AdamEveGenerator" />
       <item itemvalue="Application.Test_Generator" />
       <item itemvalue="Application.Test_GroupGenerator" />
-      <item itemvalue="Application.LabFormula" />
       <item itemvalue="Application.Test_LabFormula" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_Specimen" />
         <item itemvalue="Application.Test_GroupGenerator" />
         <item itemvalue="Application.Test_AdamEveGenerator" />
         <item itemvalue="Application.Test_LabFormula" />
         <item itemvalue="Application.Test_Generator" />
-        <item itemvalue="Application.LabFormula" />
       </list>
     </recent_temporary>
   </component>
@@ -194,6 +203,17 @@
     <option name="localTasksCounter" value="4" />
     <servers />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -221,14 +241,9 @@
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/genetic/Specimen.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/common/LabFormula.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,7 +1,6 @@
 package genetic.killer;
 
 import genetic.Species;
-import javafx.util.Pair;
 
 import java.util.*;
 
@@ -18,28 +17,13 @@ public class ElementOfTheEliteKiller implements Killer {
         this.reduceCount = reduceCount;
     }
     @Override
-    public List<Species> choose(List<Species> speciesList) {
-        List<Pair<Double, Species>> scoreBoard = new ArrayList<>();
-        List<Species> elites = new ArrayList<>();
-        List<Species> lowLives = new ArrayList<>();
-        List<Species> killList = new ArrayList<>();
+    public <T extends Species> List<T> choose(List<T> speciesList) {
+        List<T> sortedList = new ArrayList<>(speciesList);
+        Collections.sort(sortedList);
 
-        int bestIndex = -1; //индекс самого сильного
-        double maxAdaptedness = Double.MIN_VALUE; //приспособленность самого сильного
+        List<T> lowLives = new ArrayList<>(sortedList.subList(0, sortedList.size() - this.eliteCount));
+        Killer killer = new EqualChanceKiller(this.reduceCount);
 
-        for (Species creature : speciesList) {
-            scoreBoard.add(new Pair<>(creature.adaptedness(), creature));
-        }
-        Arrays.sort((Pair<Double, Species>[]) scoreBoard.toArray(), new Comparator<Pair<Double, Species>>() {
-            @Override
-            public int compare(Pair<Double, Species> o1, Pair<Double, Species> o2) {
-                return o1.getKey().compareTo(o2.getKey());
-            }
-        });
-
-
-        // TODO: Добавить обратно из сохраненных сообщений Telegram
-
-        return killList; //список для редукции
+        return killer.choose(lowLives);
     }
 }

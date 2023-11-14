@@ -1,15 +1,19 @@
 package genetic;
 
+import common.Formula;
+import common.LabFormula;
 import common.LabParameters;
 import common.ParameterRestrictions;
 import genetic.birth.AverageGeneBirth;
 import genetic.mutation.RandomOffsetMutation;
 
+import java.io.InvalidClassException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Specimen extends Species {
+    private static final Formula adaptednessFormula = new LabFormula();
     private static ArrayList<Object> build() {
         int finalFieldsSize = BUILD_INDEXES.values().length;
         ArrayList<Object> finalFields = new ArrayList<>(Arrays.asList(new Object[finalFieldsSize]));
@@ -25,6 +29,16 @@ public class Specimen extends Species {
     public Specimen(List<Double> genomeValues) {
         super(build());
         this.genome = new SpecimenGenome(genomeValues);
+    }
+
+    @Override
+    public double adaptedness() {
+        try {
+            return Specimen.adaptednessFormula.get(this.genome.geneValues);
+        } catch (InvalidClassException e) {
+            System.out.println("Error: Gene is invalid: " + e);
+            return Double.MIN_VALUE;
+        }
     }
 
     @Override
@@ -58,5 +72,10 @@ public class Specimen extends Species {
             throw new IllegalArgumentException("Passed List<Object> cannot be case to List<Specimen>: " + e.toString());
         }
         return (parsedValue);
+    }
+
+    @Override
+    public String toString() {
+        return "Specimen: adaptedness: " + this.adaptedness();
     }
 }

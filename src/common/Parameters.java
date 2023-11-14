@@ -51,4 +51,13 @@ public class Parameters {
     public int getParameterCount() {
         return this.parameterCount;
     }
+
+    @Override
+    public String toString() {
+        return "Parameters{" +
+                "parameterValues=" + parameterValues +
+                ", parameterCount=" + parameterCount +
+                ", parameterRestrictions=" + parameterRestrictions +
+                '}';
+    }
 }

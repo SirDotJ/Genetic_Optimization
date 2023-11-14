@@ -15,9 +15,9 @@ public class EqualChanceBreeder implements Breeder{
         this(DEFAULT_BREED_COUNT);
     }
     @Override
-    public List<Species> choose(List<Species> speciesList) {
-        List<Species> speciesListCopy = List.copyOf(speciesList);
-        List<Species> breederList = new ArrayList<>();
+    public <T extends Species> List<T> choose(List<T> speciesList) {
+        List<T> speciesListCopy = new ArrayList<>(speciesList);
+        List<T> breederList = new ArrayList<>();
         for (int i = 0; i < this.breedAmount; i++) {
             int breederIndex = (int) (Math.random() * speciesListCopy.size());
             breederList.add(speciesListCopy.get(breederIndex));

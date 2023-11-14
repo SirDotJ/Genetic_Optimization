@@ -5,5 +5,5 @@ import genetic.Species;
 import java.util.List;
 
 public interface Breeder {
-    public abstract List<Species> choose(List<Species> speciesList);
+    <T extends Species> List<T> choose(List<T> speciesList);
 }

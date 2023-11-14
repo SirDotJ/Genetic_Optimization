@@ -19,9 +19,11 @@ public class TournamentBreeder implements Breeder{
     }
 
     @Override
-    public List<Species> choose(List<Species> speciesList) {
-        List<Species> breedList = new ArrayList<>();
-        breedList.addAll(new SurvivalOfTheFittestBreeder(breedAmount).choose(new EqualChanceBreeder(countAmount).choose(speciesList)));
-        return breedList;
+    public <T extends Species> List<T> choose(List<T> speciesList) {
+        return new ArrayList<>(
+                new SurvivalOfTheFittestBreeder(breedAmount)
+                .choose(
+                new EqualChanceBreeder(countAmount)
+                .choose(speciesList)));
     }
 }

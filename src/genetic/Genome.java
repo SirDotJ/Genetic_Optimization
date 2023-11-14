@@ -16,4 +16,11 @@ abstract public class Genome {
         return this.geneValues.getParameterCount();
     }
     abstract public void setGeneValues(List<Double> values);
+
+    @Override
+    public String toString() {
+        return "Genome{" +
+                "geneValues=" + geneValues +
+                '}';
+    }
 }

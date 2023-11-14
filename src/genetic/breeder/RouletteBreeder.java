@@ -16,10 +16,10 @@ public class RouletteBreeder implements Breeder{
         breedAmount = X;
     }
     @Override
-    public List<Species> choose(List<Species> speciesList) {
+    public <T extends Species> List<T> choose(List<T> speciesList) {
 
-        List<Species> breedList = new ArrayList<>();
-        List<Species> LostList = speciesList; //исходный список
+        List<T> breedList = new ArrayList<>();
+        List<T> LostList = speciesList; //исходный список
 
         //создаем массив softmax приспособленностей
         double[] softmaxAdaptedness = new double[LostList.size()];
@@ -49,7 +49,7 @@ public class RouletteBreeder implements Breeder{
                     breedIndex = 0;
                     break;
                 }
-                if (breedNumber>rangeArray[rangeArray.length]) { //если между последней границей и 1
+                if (breedNumber>rangeArray[rangeArray.length - 1]) { //если между последней границей и 1
                     breedIndex = rangeArray.length;
                     break;
                 }

@@ -14,10 +14,10 @@ public class RouletteKiller implements Killer {
         reduceAmount = X;
     }
     @Override
-    public List<Species> choose(List<Species> speciesList) {
+    public <T extends Species> List<T> choose(List<T> speciesList) {
 
-        List<Species> killList = new ArrayList<>();
-        List<Species> survivorsList = speciesList; //исходный список
+        List<T> killList = new ArrayList<>();
+        List<T> survivorsList = speciesList; //исходный список
 
         //создаем массив softmax приспособленностей
         double[] softmaxAdaptedness = new double[survivorsList.size()];
@@ -47,7 +47,7 @@ public class RouletteKiller implements Killer {
                     killIndex = 0;
                     break;
                 }
-                if (killNumber>rangeArray[rangeArray.length]) { //если между последней границей и 1
+                if (killNumber>rangeArray[rangeArray.length - 1]) { //если между последней границей и 1
                     killIndex = rangeArray.length;
                     break;
                 }

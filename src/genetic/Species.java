@@ -5,7 +5,7 @@ import genetic.mutation.Mutation;
 
 import java.util.List;
 
-public abstract class Species {
+public abstract class Species implements Comparable<Species> {
     // Метод определяет используемые параметры для класса (вид скрещивания, мутации)
     protected enum BUILD_INDEXES {
         BIRTH,
@@ -25,9 +25,7 @@ public abstract class Species {
     public Genome getGenome() {
         return genome;
     }
-    public double adaptedness() {
-        return 0;
-    }
+    public abstract double adaptedness();
     public List<Double> getGenomeValues() {
         return this.genome.getGeneValues().getParameterValues();
     }
@@ -42,5 +40,12 @@ public abstract class Species {
             throw new IllegalArgumentException("Passed List<Object> cannot be case to List<Specimen>: " + e.toString());
         }
         return (parsedValue);
+    }
+
+    @Override
+    public int compareTo(Species o) {
+        double adaptednessThis = this.adaptedness();
+        double adaptednessO = o.adaptedness();
+        return Double.compare(adaptednessThis, adaptednessO);
     }
 }

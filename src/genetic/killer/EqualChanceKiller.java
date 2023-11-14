@@ -15,9 +15,9 @@ public class EqualChanceKiller implements Killer {
         this.reduceAmount = reduceAmount;
     }
     @Override
-    public List<Species> choose(List<Species> speciesList) {
-        List<Species> availableTargets = List.copyOf(speciesList);
-        List<Species> killList = new ArrayList<>();
+    public <T extends Species> List<T> choose(List<T> speciesList) {
+        List<T> availableTargets = new ArrayList<>(speciesList);
+        List<T> killList = new ArrayList<>();
         for (int i = 0; i < this.reduceAmount; i++) {
             int killIndex = (int) (Math.random() * availableTargets.size());
             killList.add(availableTargets.get(killIndex));
