@@ -4,28 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Рефакторинг Parameters с приминением Omega:&#10;- LabFunction и определение функции лабораторной работы переведено в LabFormula;&#10;- LabFormula расширен объявлением используемой функции;&#10;- LabParameters расширен добавлением ограничений к параметрам из постановки лабораторной работы;&#10;- Было произведёно переопределение LabParameters: теперь LabParameters только определяет используемые ограничения и количество параметров перед отправкой на создание в родительском классе Parameters;&#10;- Parameters теперь не абстрактный класс и определяет хранение и все общие операции над параметрами учитывая ограничения или их отсутствие;&#10;- ParameterRestrictions - описывает проверку предоставленного набора параметров на их принадлежность соответствующим диапазонам значений NumberRange;&#10;- NumberRange - описывает включительный диапазон значений для одного параметра.">
-      <change afterPath="$PROJECT_DIR$/src/genetic/breedingGround/PrideBreedingGround.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetic/Test_Specimen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetic/birth/Test_AverageGeneBirth.java" afterDir="false" />
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller.">
+      <change afterPath="$PROJECT_DIR$/src/testing/genetic/birth/Test_Birth.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetic/breedingground/Test_BreedingGround.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/LabFormula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/LabFormula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/Parameters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Species.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Species.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Specimen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Specimen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/Breeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/Breeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/EqualChanceBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/EqualChanceBreeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/HybridBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/HybridBreeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/RouletteBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/RouletteBreeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/SurvivalOfTheFittestBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/SurvivalOfTheFittestBreeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/TournamentBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/TournamentBreeder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/ElementOfTheEliteKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/ElementOfTheEliteKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/EqualChanceKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/EqualChanceKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/Killer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/Killer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/RouletteKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/RouletteKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/WeakestKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/WeakestKiller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +57,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_Specimen">
+  <component name="RunManager" selected="Application.Test_Birth">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
@@ -97,12 +79,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.genetic.generator.Test_Generator" />
+    <configuration name="Test_Birth" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetic.birth.Test_Birth" />
       <module name="AIS-Lab1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testing.genetic.generator.*" />
+          <option name="PATTERN" value="testing.genetic.birth.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -151,19 +133,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Full App Start" />
+      <item itemvalue="Application.Test_Birth" />
       <item itemvalue="Application.Test_Specimen" />
       <item itemvalue="Application.Test_AdamEveGenerator" />
-      <item itemvalue="Application.Test_Generator" />
       <item itemvalue="Application.Test_GroupGenerator" />
       <item itemvalue="Application.Test_LabFormula" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_Birth" />
         <item itemvalue="Application.Test_Specimen" />
         <item itemvalue="Application.Test_GroupGenerator" />
         <item itemvalue="Application.Test_AdamEveGenerator" />
         <item itemvalue="Application.Test_LabFormula" />
-        <item itemvalue="Application.Test_Generator" />
       </list>
     </recent_temporary>
   </component>
@@ -200,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696931686586</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller.">
+      <option name="closed" value="true" />
+      <created>1699928189350</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1699928189350</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -230,7 +220,8 @@
     <MESSAGE value="Включил Omega класс, созданный Денисом, в проект" />
     <MESSAGE value="Рефакторинг LabFormula:&#10;- Структура изменена: Equation удалён;&#10;- Formula теперь не хранит Parameters: они передаются при вычислении;&#10;- Formula хранит Function;&#10;- Function для лабораторной работы определен в LabFunction вместо LabFormula;&#10;- LabFormula теперь только определяет используемую формулу;&#10;- Проверка корректности параметров отведено на реализацию в Parameters." />
     <MESSAGE value="Рефакторинг Parameters с приминением Omega:&#10;- LabFunction и определение функции лабораторной работы переведено в LabFormula;&#10;- LabFormula расширен объявлением используемой функции;&#10;- LabParameters расширен добавлением ограничений к параметрам из постановки лабораторной работы;&#10;- Было произведёно переопределение LabParameters: теперь LabParameters только определяет используемые ограничения и количество параметров перед отправкой на создание в родительском классе Parameters;&#10;- Parameters теперь не абстрактный класс и определяет хранение и все общие операции над параметрами учитывая ограничения или их отсутствие;&#10;- ParameterRestrictions - описывает проверку предоставленного набора параметров на их принадлежность соответствующим диапазонам значений NumberRange;&#10;- NumberRange - описывает включительный диапазон значений для одного параметра." />
-    <option name="LAST_COMMIT_MESSAGE" value="Рефакторинг Parameters с приминением Omega:&#10;- LabFunction и определение функции лабораторной работы переведено в LabFormula;&#10;- LabFormula расширен объявлением используемой функции;&#10;- LabParameters расширен добавлением ограничений к параметрам из постановки лабораторной работы;&#10;- Было произведёно переопределение LabParameters: теперь LabParameters только определяет используемые ограничения и количество параметров перед отправкой на создание в родительском классе Parameters;&#10;- Parameters теперь не абстрактный класс и определяет хранение и все общие операции над параметрами учитывая ограничения или их отсутствие;&#10;- ParameterRestrictions - описывает проверку предоставленного набора параметров на их принадлежность соответствующим диапазонам значений NumberRange;&#10;- NumberRange - описывает включительный диапазон значений для одного параметра." />
+    <MESSAGE value="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller." />
+    <option name="LAST_COMMIT_MESSAGE" value="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

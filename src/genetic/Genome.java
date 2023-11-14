@@ -19,8 +19,11 @@ abstract public class Genome {
 
     @Override
     public String toString() {
-        return "Genome{" +
-                "geneValues=" + geneValues +
-                '}';
+        StringBuilder builder = new StringBuilder("Genome: ");
+        for (int i = 0; i < this.getSize(); i++) {
+            double value = this.get(i);
+            builder.append("\n\tvalue_").append(i).append(": ").append(value);
+        }
+        return builder.toString();
     }
 }
