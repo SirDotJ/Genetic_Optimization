@@ -29,7 +29,21 @@ public abstract class Species implements Comparable<Species> {
     public List<Double> getGenomeValues() {
         return this.genome.getGeneValues().getParameterValues();
     }
-    public void setGenomeValues(List<Double> newValues) { this.genome.setGeneValues(newValues); }
+    public void setGenomeValues(List<Double> newValues) throws IllegalArgumentException {
+        for (int i = 0; i < newValues.size(); i++) {
+            double value = newValues.get(i);
+            try {
+                this.setGenomeValue(i, value);
+            } catch (IllegalArgumentException e) {
+                throw new IllegalArgumentException("Provided values are not correct: value " + i + " is out of range");
+            }
+        }
+    }
+    public void setGenomeValue(int index, double value) throws IllegalArgumentException {
+        if (!this.genome.checkGenomeValue(index, value))
+            throw new IllegalArgumentException("Provided value is out of range for Genome");
+        this.genome.setGeneValue(index, value);
+    }
     abstract public Species reproduce(Species partner);
     abstract public void mutate();
     static public List<Species> parseListObjectToSpecies(List<Object> providedList) throws IllegalArgumentException {

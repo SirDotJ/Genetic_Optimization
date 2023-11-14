@@ -1,15 +1,25 @@
 package genetic.mutation;
 
+import common.RandomSelector;
 import genetic.Species;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
-// Мутация выбирает случайнок количество генов и добавляет к ним случайное положительное/отрицательное число
+// Мутация выбирает случайное количество генов и добавляет к ним случайное положительное/отрицательное число
 public class RandomOffsetMutation extends Mutation {
-    private RandomOffsetMutation() {}
+    public RandomOffsetMutation() {
+        super();
+    }
+    public RandomOffsetMutation(double power) {
+        super(power);
+    }
+    public RandomOffsetMutation(double power, int geneCount) {
+        super(power, geneCount);
+    }
+    public RandomOffsetMutation(int geneCount) {
+        super(geneCount);
+    }
     private final static RandomOffsetMutation instance = new RandomOffsetMutation();
     public static RandomOffsetMutation getInstance() { return instance; }
 
@@ -19,29 +29,42 @@ public class RandomOffsetMutation extends Mutation {
         int genomeSize = genomeValues.size();
         int changeCount = (int) (Math.random() * genomeSize);
 
-        ArrayList<Integer> indexesToChange = getRandomIndexesToChange(genomeSize, changeCount);
+        List<Integer> indexesToChange = getRandomIndexesToChange(genomeSize, changeCount);
 
-        // TODO: replace with Omega bounds for genome in mind later
-        double lowerBound = -4d;
-        double upperBound = 4d;
-        indexesToChange.forEach((index) -> {
-            double offsetValue = lowerBound + Math.random() * upperBound;
-            genomeValues.set(index, genomeValues.get(index) + offsetValue);
-        });
+        double lowerBound = -Math.abs(this.power);
+        double upperBound = Math.abs(this.power);
+        int counter = 0;
+        int ceiling = 1 + (int) (Math.random() * this.geneCount);
+        System.out.println(ceiling);
+        for (int indexToChange : indexesToChange) {
+            if (counter++ >= ceiling)
+                break;
 
-        speciesInstance.setGenomeValues(genomeValues);
+            boolean set = false;
+            while (!set) {
+                double offsetValue = lowerBound + Math.random() * upperBound;
+                try {
+                    double newValue = speciesInstance.getGene(indexToChange) + offsetValue;
+                    speciesInstance.setGenomeValue(indexToChange, newValue);
+                } catch (IllegalArgumentException e) {
+                    continue;
+                }
+                set = true;
+            }
+        }
     }
 
-    private static ArrayList<Integer> getRandomIndexesToChange(int size, int amountToChange) {
-        ArrayList<Integer> indexes = new ArrayList<>(Arrays.asList(new Integer[size]));
-        for (int i = 0; i < size; i++) indexes.set(i, i);
+    private static List<Integer> getRandomIndexesToChange(int size, int amountToChange) {
+        List<Integer> indexes = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            indexes.add(i);
+        }
 
-        Random rand = new Random();
-        ArrayList<Integer> indexesToChange = new ArrayList<>();
+        RandomSelector selector = new RandomSelector(indexes);
+
+        List<Integer> indexesToChange = new ArrayList<>();
         for (int i = 0; i < amountToChange; i++) {
-            int randomIndex = rand.nextInt(indexes.size());
-            indexesToChange.add(randomIndex);
-            indexesToChange.remove(randomIndex);
+            indexesToChange.add((Integer) selector.get());
         }
 
         return indexesToChange;

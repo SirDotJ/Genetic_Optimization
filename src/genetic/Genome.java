@@ -15,7 +15,14 @@ abstract public class Genome {
     public int getSize() {
         return this.geneValues.getParameterCount();
     }
-    abstract public void setGeneValues(List<Double> values);
+    public void setGeneValues(List<Double> values) {
+        for (int i = 0; i < values.size(); i++)
+            this.setGeneValue(i, values.get(i));
+    }
+    abstract public void setGeneValue(int index, double value);
+    public boolean checkGenomeValue(int index, double value) {
+        return this.geneValues.checkRestriction(index, value);
+    }
 
     @Override
     public String toString() {

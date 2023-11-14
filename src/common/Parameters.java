@@ -22,6 +22,10 @@ public class Parameters {
         return parameterRestrictions;
     }
 
+    public boolean checkRestriction(int index, double value) {
+        return this.parameterRestrictions.check(index, value);
+    }
+
     public double get(int index) throws IllegalStateException, IllegalArgumentException {
         if (parameterValues == null || parameterValues.isEmpty())
             throw new IllegalStateException("Current parameters don't exist or are empty");

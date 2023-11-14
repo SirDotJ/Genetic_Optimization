@@ -10,7 +10,7 @@ public class SpecimenGenome extends Genome {
         this.geneValues = new LabParameters(values);
     }
     @Override
-    public void setGeneValues(List<Double> values) {
-        this.geneValues.set(values);
+    public void setGeneValue(int index, double value) {
+        this.geneValues.set(index, value);
     }
 }
