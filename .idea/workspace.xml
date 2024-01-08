@@ -5,9 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller.">
-      <change afterPath="$PROJECT_DIR$/src/testing/genetic/birth/Test_Birth.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetic/breedingground/Test_BreedingGround.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_base.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/genetichelper/PopulationBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_PopulationBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/JavaFX_SDK_21.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIS-Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AIS-Lab1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Population.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/mutation/RandomOffsetMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/mutation/RandomOffsetMutation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +63,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_Birth">
+  <component name="RunManager" selected="Application.Test_PopulationBuilder">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
@@ -105,12 +111,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_LabFormula" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.common.Test_LabFormula" />
+    <configuration name="Test_PopulationBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_PopulationBuilder" />
       <module name="AIS-Lab1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testing.common.*" />
+          <option name="PATTERN" value="testing.genetichelper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -133,19 +139,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Full App Start" />
+      <item itemvalue="Application.Test_PopulationBuilder" />
       <item itemvalue="Application.Test_Birth" />
       <item itemvalue="Application.Test_Specimen" />
       <item itemvalue="Application.Test_AdamEveGenerator" />
       <item itemvalue="Application.Test_GroupGenerator" />
-      <item itemvalue="Application.Test_LabFormula" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_PopulationBuilder" />
         <item itemvalue="Application.Test_Birth" />
         <item itemvalue="Application.Test_Specimen" />
         <item itemvalue="Application.Test_GroupGenerator" />
         <item itemvalue="Application.Test_AdamEveGenerator" />
-        <item itemvalue="Application.Test_LabFormula" />
       </list>
     </recent_temporary>
   </component>

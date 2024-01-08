@@ -35,7 +35,6 @@ public class RandomOffsetMutation extends Mutation {
         double upperBound = Math.abs(this.power);
         int counter = 0;
         int ceiling = 1 + (int) (Math.random() * this.geneCount);
-        System.out.println(ceiling);
         for (int indexToChange : indexesToChange) {
             if (counter++ >= ceiling)
                 break;

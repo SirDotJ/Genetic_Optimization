@@ -51,7 +51,7 @@ public class Population {
         this(build());
     }
     // TODO: public конструкторы для произвольных параметров Population
-    private Population(List<Object> parameters) throws IllegalArgumentException {
+    public Population(List<Object> parameters) throws IllegalArgumentException {
         try {
             this.speciesClass = (Class<Species>) parameters.get(BUILD_INDEXES.SPECIES.ordinal());
             this.generator = (Generator) parameters.get(BUILD_INDEXES.GENERATOR.ordinal());
