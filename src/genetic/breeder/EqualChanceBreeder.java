@@ -25,4 +25,9 @@ public class EqualChanceBreeder implements Breeder{
         }
         return breederList;
     }
+
+    @Override
+    public String toString() {
+        return "EqualChanceBreeder(" + this.breedAmount + ")";
+    }
 }

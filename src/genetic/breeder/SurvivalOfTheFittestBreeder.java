@@ -21,4 +21,8 @@ public class SurvivalOfTheFittestBreeder implements Breeder{
 
         return sortedList.subList(0, this.breedAmount);
     }
+    @Override
+    public String toString() {
+        return "SurvivalOfTheFittestBreeder(" + this.breedAmount + ")";
+    }
 }

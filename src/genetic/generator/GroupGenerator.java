@@ -1,6 +1,8 @@
 package genetic.generator;
 
 
+import genetic.Species;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +10,10 @@ import java.util.List;
 public class GroupGenerator extends Generator {
     private final static int DEFAULT_GROUP_SIZE = 10;
     private final int groupSize;
-    public GroupGenerator(Class<?> objectClass) {
+    public GroupGenerator(Class<? extends Species> objectClass) {
         this(objectClass, DEFAULT_GROUP_SIZE);
     }
-    public GroupGenerator(Class<?> objectClass, int groupSize) {
+    public GroupGenerator(Class<? extends Species> objectClass, int groupSize) {
         super(objectClass);
         this.groupSize = groupSize;
     }
@@ -22,6 +24,12 @@ public class GroupGenerator extends Generator {
     public List<Object> generate() {
         return this.generate(this.groupSize);
     }
+
+    @Override
+    public int getCount() {
+        return this.groupSize;
+    }
+
     private List<Object> generate(int amount) {
         List<Object> group = new ArrayList<>();
         try {
@@ -38,5 +46,10 @@ public class GroupGenerator extends Generator {
         }
 
         return group;
+    }
+
+    @Override
+    public String toString() {
+        return "GroupGenerator(" + this.groupSize + ")";
     }
 }

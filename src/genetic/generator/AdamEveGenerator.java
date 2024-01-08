@@ -1,11 +1,13 @@
 package genetic.generator;
 
+import genetic.Species;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class AdamEveGenerator extends Generator {
-    public AdamEveGenerator(Class<?> objectClass) {
+    public AdamEveGenerator(Class<? extends Species> objectClass) {
         super(objectClass);
     }
 
@@ -26,5 +28,15 @@ public class AdamEveGenerator extends Generator {
         }
 
         return adamAndEve;
+    }
+
+    @Override
+    public int getCount() {
+        return 2;
+    }
+
+    @Override
+    public String toString() {
+        return "AdamEveGenerator(2)";
     }
 }

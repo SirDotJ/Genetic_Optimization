@@ -26,4 +26,8 @@ public class TournamentBreeder implements Breeder{
                 new EqualChanceBreeder(countAmount)
                 .choose(speciesList)));
     }
+    @Override
+    public String toString() {
+        return "TournamentBreeder(" + this.countAmount + ", " + this.breedAmount + ")";
+    }
 }

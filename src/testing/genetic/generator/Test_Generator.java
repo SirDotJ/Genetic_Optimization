@@ -13,6 +13,11 @@ public class Test_Generator {
                 public List<Object> generate() {
                     return null;
                 }
+
+                @Override
+                public int getCount() {
+                    return 0;
+                }
             };
         } catch (Exception e) {
             System.out.println("Exception occurred: " + e);

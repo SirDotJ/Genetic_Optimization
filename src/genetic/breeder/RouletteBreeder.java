@@ -68,4 +68,8 @@ public class RouletteBreeder implements Breeder{
         }
         return breedList;
     }
+    @Override
+    public String toString() {
+        return "RouletteBreeder(" + this.breedAmount + ")";
+    }
 }

@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент PopulationBuilder для построения новых популяций">
-      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/NumberRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/NumberRange.java" afterDir="false" />
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент RandomGenerator для генерации случайных генераторов.">
+      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomBreeder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/EqualChanceBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/EqualChanceBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/RouletteBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/RouletteBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/SurvivalOfTheFittestBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/SurvivalOfTheFittestBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/breeder/TournamentBreeder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/breeder/TournamentBreeder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/generator/AdamEveGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/generator/AdamEveGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/generator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/generator/Generator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/generator/GroupGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/generator/GroupGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/testing/genetic/generator/Test_Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/testing/genetic/generator/Test_Generator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,12 +87,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_GroupGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.genetic.generator.Test_GroupGenerator" />
+    <configuration name="Test_PopulationBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_PopulationBuilder" />
       <module name="AIS-Lab1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="testing.genetic.generator.*" />
+          <option name="PATTERN" value="testing.genetichelper.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -93,8 +100,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test_PopulationBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_PopulationBuilder" />
+    <configuration name="Test_RandomBreeder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_RandomBreeder" />
       <module name="AIS-Lab1" />
       <extension name="coverage">
         <pattern>
@@ -135,18 +142,18 @@
     <list>
       <item itemvalue="Application.Full App Start" />
       <item itemvalue="Application.Test_PopulationBuilder" />
+      <item itemvalue="Application.Test_RandomBreeder" />
       <item itemvalue="Application.Test_RandomGenerator" />
       <item itemvalue="Application.Test_Birth" />
       <item itemvalue="Application.Test_Specimen" />
-      <item itemvalue="Application.Test_GroupGenerator" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Test_RandomGenerator" />
+        <item itemvalue="Application.Test_RandomBreeder" />
         <item itemvalue="Application.Test_PopulationBuilder" />
         <item itemvalue="Application.Test_Birth" />
         <item itemvalue="Application.Test_Specimen" />
-        <item itemvalue="Application.Test_GroupGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -199,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704672377810</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Добавлен инструмент RandomGenerator для генерации случайных генераторов.">
+      <option name="closed" value="true" />
+      <created>1704673512907</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704673512907</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -231,7 +246,8 @@
     <MESSAGE value="Рефакторинг Parameters с приминением Omega:&#10;- LabFunction и определение функции лабораторной работы переведено в LabFormula;&#10;- LabFormula расширен объявлением используемой функции;&#10;- LabParameters расширен добавлением ограничений к параметрам из постановки лабораторной работы;&#10;- Было произведёно переопределение LabParameters: теперь LabParameters только определяет используемые ограничения и количество параметров перед отправкой на создание в родительском классе Parameters;&#10;- Parameters теперь не абстрактный класс и определяет хранение и все общие операции над параметрами учитывая ограничения или их отсутствие;&#10;- ParameterRestrictions - описывает проверку предоставленного набора параметров на их принадлежность соответствующим диапазонам значений NumberRange;&#10;- NumberRange - описывает включительный диапазон значений для одного параметра." />
     <MESSAGE value="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller." />
     <MESSAGE value="Добавлен инструмент PopulationBuilder для построения новых популяций" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент PopulationBuilder для построения новых популяций" />
+    <MESSAGE value="Добавлен инструмент RandomGenerator для генерации случайных генераторов." />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент RandomGenerator для генерации случайных генераторов." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -240,11 +256,6 @@
           <url>file://$PROJECT_DIR$/src/testing/common/Test_LabFormula.java</url>
           <line>19</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/genetic/breeder/PrideBreeder.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="27" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
