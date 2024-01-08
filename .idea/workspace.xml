@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент RandomBreedingGround на основе RandomGenerator">
-      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomKiller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/ElementOfTheEliteKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/ElementOfTheEliteKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/EqualChanceKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/EqualChanceKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/RouletteKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/RouletteKiller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/killer/WeakestKiller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/killer/WeakestKiller.java" afterDir="false" />
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент RandomKiller, Также удалён AdamAndEveGenerator из RandomGenerator из-за его малого размера">
+      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomMutator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomMutator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/mutator/EqualChanceMutator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/mutator/EqualChanceMutator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,24 +57,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_RandomKiller">
+  <component name="RunManager" selected="Application.Test_RandomMutator">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
       <option name="VM_PARAMETERS" value="--module-path &quot;$USER_HOME$/bin/javafx-sdk-21/lib/&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_PopulationBuilder" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_PopulationBuilder" />
-      <module name="AIS-Lab1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testing.genetichelper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -135,21 +118,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test_RandomMutator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_RandomMutator" />
+      <module name="AIS-Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testing.genetichelper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Full App Start" />
-      <item itemvalue="Application.Test_PopulationBuilder" />
       <item itemvalue="Application.Test_RandomBreeder" />
       <item itemvalue="Application.Test_RandomBreedingGround" />
       <item itemvalue="Application.Test_RandomGenerator" />
       <item itemvalue="Application.Test_RandomKiller" />
+      <item itemvalue="Application.Test_RandomMutator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_RandomMutator" />
         <item itemvalue="Application.Test_RandomKiller" />
         <item itemvalue="Application.Test_RandomBreedingGround" />
         <item itemvalue="Application.Test_RandomGenerator" />
         <item itemvalue="Application.Test_RandomBreeder" />
-        <item itemvalue="Application.Test_PopulationBuilder" />
       </list>
     </recent_temporary>
   </component>
@@ -226,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704675396879</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Добавлен инструмент RandomKiller, Также удалён AdamAndEveGenerator из RandomGenerator из-за его малого размера">
+      <option name="closed" value="true" />
+      <created>1704676220092</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704676220092</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -261,7 +265,8 @@
     <MESSAGE value="Добавлен инструмент RandomGenerator для генерации случайных генераторов." />
     <MESSAGE value="Добавлен инструмент RandomBreeder на основе переданного Generator" />
     <MESSAGE value="Добавлен инструмент RandomBreedingGround на основе RandomGenerator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент RandomBreedingGround на основе RandomGenerator" />
+    <MESSAGE value="Добавлен инструмент RandomKiller, Также удалён AdamAndEveGenerator из RandomGenerator из-за его малого размера" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент RandomKiller, Также удалён AdamAndEveGenerator из RandomGenerator из-за его малого размера" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

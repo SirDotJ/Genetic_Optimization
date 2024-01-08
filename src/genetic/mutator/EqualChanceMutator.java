@@ -23,4 +23,9 @@ public class EqualChanceMutator extends Mutator {
             chosenToMutate.add((TS) selector.get());
         return chosenToMutate;
     }
+
+    @Override
+    public String toString() {
+        return "EqualChanceMutator(" + this.count + ")";
+    }
 }
