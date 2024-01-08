@@ -68,4 +68,9 @@ public class RandomOffsetMutation extends Mutation {
 
         return indexesToChange;
     }
+
+    @Override
+    public String toString() {
+        return "RandomOffsetMutation(" + this.power + ", " + this.geneCount + ")";
+    }
 }

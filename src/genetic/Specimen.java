@@ -74,6 +74,10 @@ public class Specimen extends Species {
         return (parsedValue);
     }
 
+    static public int getGeneCount() {
+        return LabParameters.PARAMETER_COUNT;
+    }
+
     @Override
     public String toString() {
         return "Specimen: adaptedness: " + this.adaptedness();

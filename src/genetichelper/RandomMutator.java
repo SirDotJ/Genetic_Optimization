@@ -13,7 +13,7 @@ public class RandomMutator {
 		EqualChanceMutator.class
 	));
 
-	public static Mutator get(Generator generator) throws IllegalStateException {
+	public static Mutator get(Generator generator) {
 		int populationSize = generator.getCount();
 
 		int chosenMutatorIndex = (int) (Math.random() * MUTATORS.size());
