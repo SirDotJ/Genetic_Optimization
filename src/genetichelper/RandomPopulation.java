@@ -12,9 +12,9 @@ import genetic.mutator.Mutator;
 public class RandomPopulation {
 	public static Population get(Class<? extends Species> speciesClass) {
 		Generator generator = RandomGenerator.get(speciesClass);
-		Breeder breeder = RandomBreeder.get(generator);
-		BreedingGround breedingGround = RandomBreedingGround.get(generator);
 		Killer killer = RandomKiller.get(generator);
+		Breeder breeder = RandomBreeder.get(generator, killer);
+		BreedingGround breedingGround = RandomBreedingGround.get(generator);
 		Mutator mutator = RandomMutator.get(generator);
 		Mutation mutation = RandomMutation.get(generator);
 

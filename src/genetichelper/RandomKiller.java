@@ -11,7 +11,7 @@ public class RandomKiller {
 	private static final List<Class<? extends Killer>> KILLERS = new ArrayList<>(Arrays.asList(
 		WeakestKiller.class,
 		EqualChanceKiller.class,
-		RouletteKiller.class,
+//		RouletteKiller.class,
 		ElementOfTheEliteKiller.class
 	));
 

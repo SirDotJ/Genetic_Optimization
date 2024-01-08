@@ -31,4 +31,9 @@ public class ElementOfTheEliteKiller implements Killer {
     public String toString() {
         return "ElementOfTheEliteKiller(" + this.eliteCount + ", " + this.reduceCount + ")";
     }
+
+    @Override
+    public int getCount() {
+        return this.reduceCount;
+    }
 }

@@ -27,4 +27,9 @@ public class WeakestKiller implements Killer {
     public String toString() {
         return "WeakestKiller(" + this.reduceAmount + ")";
     }
+
+    @Override
+    public int getCount() {
+        return this.reduceAmount;
+    }
 }

@@ -71,4 +71,9 @@ public class RouletteKiller implements Killer {
     public String toString() {
         return "RouletteKiller(" + this.reduceAmount + ")";
     }
+
+    @Override
+    public int getCount() {
+        return this.reduceAmount;
+    }
 }

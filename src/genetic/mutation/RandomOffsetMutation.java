@@ -35,10 +35,15 @@ public class RandomOffsetMutation extends Mutation {
         double upperBound = Math.abs(this.power);
         int counter = 0;
         int ceiling = 1 + (int) (Math.random() * this.geneCount);
+
+        double initialAcceleration = 1.01; // By how much mutation value changes on failed changes
+        long stepCeiling = 100; // Iterations of mutation accelerations to run before increasing/decreasing acceleration
         for (int indexToChange : indexesToChange) {
             if (counter++ >= ceiling)
                 break;
-
+            double bigAcceleration = initialAcceleration;
+            double smallAcceleration = initialAcceleration;
+            long step = 0;
             boolean set = false;
             while (!set) {
                 double offsetValue = lowerBound + Math.random() * upperBound;
@@ -46,7 +51,37 @@ public class RandomOffsetMutation extends Mutation {
                     double newValue = speciesInstance.getGene(indexToChange) + offsetValue;
                     speciesInstance.setGenomeValue(indexToChange, newValue);
                 } catch (IllegalArgumentException e) {
-                    continue;
+                    try {
+                        double smallRightOffsetValue = offsetValue + smallAcceleration * step;
+                        double newValue = speciesInstance.getGene(indexToChange) + smallRightOffsetValue;
+                        speciesInstance.setGenomeValue(indexToChange, newValue);
+                    } catch (IllegalArgumentException e1) {
+                        try {
+                            double smallLeftOffsetValue =  offsetValue - smallAcceleration * step;
+                            double newValue = speciesInstance.getGene(indexToChange) + smallLeftOffsetValue;
+                            speciesInstance.setGenomeValue(indexToChange, newValue);
+                        } catch (IllegalArgumentException e2) {
+                            try {
+                                double bigRightOffsetValue = offsetValue + bigAcceleration * step;
+                                double newValue = speciesInstance.getGene(indexToChange) + bigRightOffsetValue;
+                                speciesInstance.setGenomeValue(indexToChange, newValue);
+                            } catch (IllegalArgumentException e3) {
+                                try {
+                                    double bigLeftOffsetValue = offsetValue - bigAcceleration * step;
+                                    double newValue = speciesInstance.getGene(indexToChange) + bigLeftOffsetValue;
+                                    speciesInstance.setGenomeValue(indexToChange, newValue);
+                                } catch (IllegalArgumentException e4) {
+                                    if (step == stepCeiling) {
+                                        step = 0;
+                                        bigAcceleration *= 2;
+                                        smallAcceleration /= 2;
+                                    }
+                                    step++;
+                                    continue;
+                                }
+                            }
+                        }
+                    }
                 }
                 set = true;
             }

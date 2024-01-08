@@ -2,6 +2,7 @@ package genetichelper;
 
 import genetic.breeder.*;
 import genetic.generator.Generator;
+import genetic.killer.Killer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,12 +13,12 @@ public class RandomBreeder {
 		PrideBreeder.class,
 		TournamentBreeder.class,
 		SurvivalOfTheFittestBreeder.class,
-		EqualChanceBreeder.class,
-		RouletteBreeder.class
+		EqualChanceBreeder.class
+//		RouletteBreeder.class
 	));
 
-	public static Breeder get(Generator generator) {
-		int populationSize = generator.getCount();
+	public static Breeder get(Generator generator, Killer killer) {
+		int populationSize = generator.getCount() - killer.getCount();
 
 		int chosenBreederIndex = (int) (Math.random() * BREEDERS.size());
 		Class<? extends Breeder> breederClass = BREEDERS.get(chosenBreederIndex);

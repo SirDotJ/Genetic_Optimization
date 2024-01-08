@@ -50,7 +50,6 @@ public class Population {
     public Population() {
         this(build());
     }
-    // TODO: public конструкторы для произвольных параметров Population
     public Population(List<Object> parameters) throws IllegalArgumentException {
         try {
             this.speciesClass = (Class<Species>) parameters.get(BUILD_INDEXES.SPECIES.ordinal());
@@ -98,6 +97,14 @@ public class Population {
         List<Species> ranking = new ArrayList<>(this.currentCreatures);
         Collections.sort(ranking);
         return ranking.get(ranking.size() - 1);
+    }
+
+    public double getOverallAdaptedness() {
+        double overallAdaptedness = 0;
+        for (Species creature : this.currentCreatures) {
+            overallAdaptedness += creature.adaptedness();
+        }
+        return overallAdaptedness;
     }
 
     @Override

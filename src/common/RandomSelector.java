@@ -13,7 +13,7 @@ public class RandomSelector {
         this.objects = (List<Object>) objects;
         this.availableObjects = new HashSet<>(this.objects);
     }
-    public Object get() {
+    public Object get() throws StackOverflowError {
         if (this.availableObjects == null || this.availableObjects.isEmpty()) {
             this.availableObjects = new HashSet<>(this.objects);
             return this.get();
