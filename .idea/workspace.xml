@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент RandomMutator">
-      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomMutation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomMutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Specimen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Specimen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/mutation/RandomOffsetMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/mutation/RandomOffsetMutation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetichelper/RandomMutator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetichelper/RandomMutator.java" afterDir="false" />
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент RandomMutation">
+      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomPopulation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomPopulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/genetic/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Population.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +57,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_RandomMutation">
+  <component name="RunManager" selected="Application.Test_RandomPopulation">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
@@ -70,19 +68,6 @@
     </configuration>
     <configuration name="Test_RandomBreedingGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_RandomBreedingGround" />
-      <module name="AIS-Lab1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testing.genetichelper.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_RandomGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_RandomGenerator" />
       <module name="AIS-Lab1" />
       <extension name="coverage">
         <pattern>
@@ -133,21 +118,34 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test_RandomPopulation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_RandomPopulation" />
+      <module name="AIS-Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testing.genetichelper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Full App Start" />
       <item itemvalue="Application.Test_RandomBreedingGround" />
-      <item itemvalue="Application.Test_RandomGenerator" />
       <item itemvalue="Application.Test_RandomKiller" />
       <item itemvalue="Application.Test_RandomMutation" />
       <item itemvalue="Application.Test_RandomMutator" />
+      <item itemvalue="Application.Test_RandomPopulation" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_RandomPopulation" />
         <item itemvalue="Application.Test_RandomMutation" />
         <item itemvalue="Application.Test_RandomMutator" />
         <item itemvalue="Application.Test_RandomKiller" />
         <item itemvalue="Application.Test_RandomBreedingGround" />
-        <item itemvalue="Application.Test_RandomGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -240,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704676635622</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Добавлен инструмент RandomMutation">
+      <option name="closed" value="true" />
+      <created>1704677203356</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704677203357</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -277,7 +283,8 @@
     <MESSAGE value="Добавлен инструмент RandomBreedingGround на основе RandomGenerator" />
     <MESSAGE value="Добавлен инструмент RandomKiller, Также удалён AdamAndEveGenerator из RandomGenerator из-за его малого размера" />
     <MESSAGE value="Добавлен инструмент RandomMutator" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент RandomMutator" />
+    <MESSAGE value="Добавлен инструмент RandomMutation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент RandomMutation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

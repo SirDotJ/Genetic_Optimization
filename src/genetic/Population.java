@@ -99,4 +99,16 @@ public class Population {
         Collections.sort(ranking);
         return ranking.get(ranking.size() - 1);
     }
+
+    @Override
+    public String toString() {
+        return "Population(\n" +
+                "\t" + this.speciesClass + "\n" +
+                "\t" + this.generator + "\n" +
+                "\t" + this.breeder + "\n" +
+                "\t" + this.breedingGround + "\n" +
+                "\t" + this.killer + "\n" +
+                "\t" + this.mutator + "\n" +
+                "\t" + this.mutation + ")\n";
+    }
 }
