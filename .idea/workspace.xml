@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller.">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_base.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/genetichelper/PopulationBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_PopulationBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/JavaFX_SDK_21.xml" beforeDir="false" />
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен инструмент PopulationBuilder для построения новых популяций">
+      <change afterPath="$PROJECT_DIR$/src/genetichelper/RandomGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/testing/genetichelper/Test_RandomGenerator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIS-Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AIS-Lab1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Population.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Population.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/mutation/RandomOffsetMutation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/mutation/RandomOffsetMutation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/NumberRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/NumberRange.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,24 +58,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_PopulationBuilder">
+  <component name="RunManager" selected="Application.Test_RandomGenerator">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
       <option name="VM_PARAMETERS" value="--module-path &quot;$USER_HOME$/bin/javafx-sdk-21/lib/&quot; --add-modules javafx.controls,javafx.fxml" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Test_AdamEveGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="testing.genetic.generator.Test_AdamEveGenerator" />
-      <module name="AIS-Lab1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="testing.genetic.generator.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -124,6 +106,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test_RandomGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="testing.genetichelper.Test_RandomGenerator" />
+      <module name="AIS-Lab1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="testing.genetichelper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Test_Specimen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="testing.genetic.Test_Specimen" />
       <module name="AIS-Lab1" />
@@ -140,18 +135,18 @@
     <list>
       <item itemvalue="Application.Full App Start" />
       <item itemvalue="Application.Test_PopulationBuilder" />
+      <item itemvalue="Application.Test_RandomGenerator" />
       <item itemvalue="Application.Test_Birth" />
       <item itemvalue="Application.Test_Specimen" />
-      <item itemvalue="Application.Test_AdamEveGenerator" />
       <item itemvalue="Application.Test_GroupGenerator" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test_RandomGenerator" />
         <item itemvalue="Application.Test_PopulationBuilder" />
         <item itemvalue="Application.Test_Birth" />
         <item itemvalue="Application.Test_Specimen" />
         <item itemvalue="Application.Test_GroupGenerator" />
-        <item itemvalue="Application.Test_AdamEveGenerator" />
       </list>
     </recent_temporary>
   </component>
@@ -196,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1699928189350</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Добавлен инструмент PopulationBuilder для построения новых популяций">
+      <option name="closed" value="true" />
+      <created>1704672377810</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1704672377810</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -227,7 +230,8 @@
     <MESSAGE value="Рефакторинг LabFormula:&#10;- Структура изменена: Equation удалён;&#10;- Formula теперь не хранит Parameters: они передаются при вычислении;&#10;- Formula хранит Function;&#10;- Function для лабораторной работы определен в LabFunction вместо LabFormula;&#10;- LabFormula теперь только определяет используемую формулу;&#10;- Проверка корректности параметров отведено на реализацию в Parameters." />
     <MESSAGE value="Рефакторинг Parameters с приминением Omega:&#10;- LabFunction и определение функции лабораторной работы переведено в LabFormula;&#10;- LabFormula расширен объявлением используемой функции;&#10;- LabParameters расширен добавлением ограничений к параметрам из постановки лабораторной работы;&#10;- Было произведёно переопределение LabParameters: теперь LabParameters только определяет используемые ограничения и количество параметров перед отправкой на создание в родительском классе Parameters;&#10;- Parameters теперь не абстрактный класс и определяет хранение и все общие операции над параметрами учитывая ограничения или их отсутствие;&#10;- ParameterRestrictions - описывает проверку предоставленного набора параметров на их принадлежность соответствующим диапазонам значений NumberRange;&#10;- NumberRange - описывает включительный диапазон значений для одного параметра." />
     <MESSAGE value="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller." />
-    <option name="LAST_COMMIT_MESSAGE" value="Тестирование и рефакторинг Breeder и Killer классов. Всё хорошо кроме RouletteBreeder и RouletteKiller." />
+    <MESSAGE value="Добавлен инструмент PopulationBuilder для построения новых популяций" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавлен инструмент PopulationBuilder для построения новых популяций" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

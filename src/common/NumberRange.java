@@ -35,4 +35,7 @@ public class NumberRange {
     public double getUpperBound() {
         return upperBound;
     }
+    public double getRandomNumber() {
+        return Math.random() * (this.upperBound - this.lowerBound) + this.lowerBound;
+    }
 }
