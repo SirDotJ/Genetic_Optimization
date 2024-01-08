@@ -29,4 +29,8 @@ public class PrideBreedingGround extends BreedingGround {
 
         return newGeneration;
     }
+    @Override
+    public String toString() {
+        return "PrideBreedingGround(" + this.populationSize + ")";
+    }
 }

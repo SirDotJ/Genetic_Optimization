@@ -22,4 +22,9 @@ public class FreeForAllBreedingGround extends BreedingGround {
         }
         return newGeneration;
     }
+
+    @Override
+    public String toString() {
+        return "FreeForAllBreedingGround(" + this.populationSize + ")";
+    }
 }
