@@ -25,4 +25,9 @@ public class EqualChanceKiller implements Killer {
         }
         return killList;
     }
+
+    @Override
+    public String toString() {
+        return "EqualChanceKiller(" + this.reduceAmount + ")";
+    }
 }

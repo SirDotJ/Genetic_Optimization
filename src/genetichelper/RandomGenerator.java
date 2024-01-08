@@ -15,7 +15,6 @@ public class RandomGenerator {
 	private static final int POPULATION_UPPER_BOUND = 1000;
 	private static final NumberRange POPULATION_RANGE = new NumberRange(POPULATION_LOWER_BOUND, POPULATION_UPPER_BOUND);
 	private static final List<Class<? extends Generator>> GENERATORS = new ArrayList<>(Arrays.asList(
-		AdamEveGenerator.class,
 		GroupGenerator.class
 	));
 	public static Generator get(Class<? extends Species> species) {

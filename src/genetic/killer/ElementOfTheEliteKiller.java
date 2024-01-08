@@ -26,4 +26,9 @@ public class ElementOfTheEliteKiller implements Killer {
 
         return killer.choose(lowLives);
     }
+
+    @Override
+    public String toString() {
+        return "ElementOfTheEliteKiller(" + this.eliteCount + ", " + this.reduceCount + ")";
+    }
 }

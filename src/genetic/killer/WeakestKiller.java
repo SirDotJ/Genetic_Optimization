@@ -22,4 +22,9 @@ public class WeakestKiller implements Killer {
 
         return sortedList.subList(0, this.reduceAmount);
     }
+
+    @Override
+    public String toString() {
+        return "WeakestKiller(" + this.reduceAmount + ")";
+    }
 }
