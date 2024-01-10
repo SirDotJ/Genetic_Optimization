@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Добавлен класс EvolutionAlgorithm, собирающий в себе оптимизацию в одну функцию. До сих пор есть нестабильности.">
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Избавился от лишнего метода и атрибута в Species по методу мутации.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/EvolutionAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/EvolutionAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Species.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Species.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/genetic/Specimen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/genetic/Specimen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +269,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704774073968</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Избавился от лишнего метода и атрибута в Species по методу мутации.">
+      <option name="closed" value="true" />
+      <created>1704847557953</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1704847557954</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -312,7 +318,8 @@
     <MESSAGE value="Добавлен инструмент RandomPopulation" />
     <MESSAGE value="Добавлен класс обработки набора популяций для нахождения лучшей особи, часть кода из теста готова к интеграции с EvolutionAlgorithm" />
     <MESSAGE value="Добавлен класс EvolutionAlgorithm, собирающий в себе оптимизацию в одну функцию. До сих пор есть нестабильности." />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавлен класс EvolutionAlgorithm, собирающий в себе оптимизацию в одну функцию. До сих пор есть нестабильности." />
+    <MESSAGE value="Избавился от лишнего метода и атрибута в Species по методу мутации." />
+    <option name="LAST_COMMIT_MESSAGE" value="Избавился от лишнего метода и атрибута в Species по методу мутации." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
