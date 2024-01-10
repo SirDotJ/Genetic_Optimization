@@ -70,6 +70,8 @@ public class EvolutionAlgorithm {
 
             if (previousBest != null && previousBest.equals(newBest)) {
                 noChangeCounter++;
+            } else {
+                noChangeCounter = 0;
             }
             System.out.println("\tCurrent adaptibility: " + this.getBestAdaptibility());
         } while (noChangeCounter < noChangeCeiling);

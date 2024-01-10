@@ -5,7 +5,6 @@ import common.LabFormula;
 import common.LabParameters;
 import common.ParameterRestrictions;
 import genetic.birth.AverageGeneBirth;
-import genetic.mutation.RandomOffsetMutation;
 
 import java.io.InvalidClassException;
 import java.util.ArrayList;
@@ -19,7 +18,6 @@ public class Specimen extends Species {
         ArrayList<Object> finalFields = new ArrayList<>(Arrays.asList(new Object[finalFieldsSize]));
 
         finalFields.set(BUILD_INDEXES.BIRTH.ordinal(), AverageGeneBirth.getInstance());
-        finalFields.set(BUILD_INDEXES.MUTATION.ordinal(), RandomOffsetMutation.getInstance());
 
         return finalFields;
     }
@@ -44,11 +42,6 @@ public class Specimen extends Species {
     @Override
     public Specimen reproduce(Species partner) {
         return new Specimen(this.birthMethod.reproduction(this, partner));
-    }
-
-    @Override
-    public void mutate() {
-        this.mutationMethod.mutate(this);
     }
 
     static private List<Double> generateRandomGenome(ParameterRestrictions restrictions) {
