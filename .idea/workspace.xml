@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Избавился от лишнего метода и атрибута в Species по методу мутации.">
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_base.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AIS-Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AIS-Lab1.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/LabFormula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/LabFormula.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/NumberRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/NumberRange.java" afterDir="false" />
-    </list>
+    <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Фикс кодовой базы для удаления зависимости от фреймворка JavaFX при определении пары значений." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -281,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704847557954</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Фикс кодовой базы для удаления зависимости от фреймворка JavaFX при определении пары значений.">
+      <option name="closed" value="true" />
+      <created>1713437223909</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1713437223909</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -323,7 +324,8 @@
     <MESSAGE value="Добавлен класс обработки набора популяций для нахождения лучшей особи, часть кода из теста готова к интеграции с EvolutionAlgorithm" />
     <MESSAGE value="Добавлен класс EvolutionAlgorithm, собирающий в себе оптимизацию в одну функцию. До сих пор есть нестабильности." />
     <MESSAGE value="Избавился от лишнего метода и атрибута в Species по методу мутации." />
-    <option name="LAST_COMMIT_MESSAGE" value="Избавился от лишнего метода и атрибута в Species по методу мутации." />
+    <MESSAGE value="Фикс кодовой базы для удаления зависимости от фреймворка JavaFX при определении пары значений." />
+    <option name="LAST_COMMIT_MESSAGE" value="Фикс кодовой базы для удаления зависимости от фреймворка JavaFX при определении пары значений." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -332,11 +334,6 @@
           <url>file://$PROJECT_DIR$/src/testing/common/Test_LabFormula.java</url>
           <line>19</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Main.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

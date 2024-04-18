@@ -73,7 +73,7 @@ public class EvolutionAlgorithm {
             } else {
                 noChangeCounter = 0;
             }
-            System.out.println("\tCurrent adaptibility: " + this.getBestAdaptibility());
+            System.out.println("\tCurrent adaptability: " + this.getBestAdaptibility());
         } while (noChangeCounter < noChangeCeiling);
     }
     public void runEvolution(int stepCount) {

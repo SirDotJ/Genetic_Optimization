@@ -15,9 +15,7 @@ public class Main{
         }
         algorithm.optimize();
         System.out.println("Best genome: " + algorithm.getBestGenome());
+		System.out.println("Best genome's adaptability: " + algorithm.getBestAdaptibility());
 		System.out.println("Best genome population: " + algorithm.getBestGenomePopulation());
-		System.out.println("Best adaptibility: " + algorithm.getBestAdaptibility());
-		System.out.println("Best overall adaptibility population: " + algorithm.getBestOverallPopulation());
-		System.out.println("Best overall adaptibility: " + algorithm.getBestOverallAdaptibility());
     }
 }
