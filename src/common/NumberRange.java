@@ -1,8 +1,7 @@
 package common;
 
-import javafx.util.Pair;
-
 import java.util.List;
+import java.util.Map.Entry;
 
 public class NumberRange {
     private final double lowerBound;
@@ -13,7 +12,7 @@ public class NumberRange {
         this.upperBound = Math.max(value1, value2);
     }
 
-    public NumberRange(Pair<Double, Double> values) {
+    public NumberRange(Entry<Double, Double> values) {
         this(values.getKey(), values.getValue());
     }
 

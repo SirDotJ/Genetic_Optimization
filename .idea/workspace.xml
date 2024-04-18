@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="57342c4d-a6fe-4668-8555-2d6094e9377a" name="Changes" comment="Избавился от лишнего метода и атрибута в Species по методу мутации.">
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/openjfx_javafx_base.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AIS-Lab1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AIS-Lab1.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/LabFormula.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/LabFormula.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/NumberRange.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/NumberRange.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,11 +60,11 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Test_EvolutionAlgorithm">
+  <component name="RunManager" selected="Application.Full App Start">
     <configuration name="Full App Start" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="AIS-Lab1" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;$USER_HOME$/bin/javafx-sdk-21/lib/&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="PROGRAM_PARAMETERS" value="25" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -328,6 +332,11 @@
           <url>file://$PROJECT_DIR$/src/testing/common/Test_LabFormula.java</url>
           <line>19</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
